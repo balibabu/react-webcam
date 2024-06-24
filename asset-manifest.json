@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/cctv/static/js/main.5515b68e.js",
+    "index.html": "/cctv/index.html",
+    "main.5515b68e.js.map": "/cctv/static/js/main.5515b68e.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.5515b68e.js"
+  ]
+}
