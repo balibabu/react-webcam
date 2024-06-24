@@ -1,7 +1,8 @@
 import React, { useCallback, useRef, useState } from 'react'
 import Webcam from 'react-webcam';
+import { upload } from './uploadApi';
 
-export default function MyWebcam() {
+export default function MyWebcam({ url }) {
     const webcamRef = useRef(null);
     const mediaRecorderRef = useRef(null);
     const [capturing, setCapturing] = useState(false);
@@ -14,7 +15,7 @@ export default function MyWebcam() {
     }, [webcamRef, setCapturing, mediaRecorderRef]);
 
     const handleDataAvailable = useCallback(({ data }) => {
-        console.log(data.size);
+        upload(url, [data]);
     }, []);
 
     const stopRec = useCallback(() => {
@@ -24,7 +25,7 @@ export default function MyWebcam() {
 
     return (
         <>
-            <Webcam audio={true} ref={webcamRef} /><br />
+            <Webcam audio={true} ref={webcamRef} mirrored={true} /><br />
             {capturing ? <button onClick={stopRec}>stop recording</button> : <button onClick={startRec}>start recording</button>}
         </>
     );
